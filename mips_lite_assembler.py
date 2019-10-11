@@ -58,11 +58,8 @@ def parse(f):
         return
 
     for line in f:
-        if check_comment(line):
-            continue
-
         line = line.lower().strip()
-        if line == "":
+        if line == "" or check_comment(line):
             continue
 
         label_groups = re.match(r'^(.+):(.*)$', line)
